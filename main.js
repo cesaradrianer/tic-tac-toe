@@ -1,6 +1,7 @@
 const startGameBtn = document.getElementById('start-game-btn')
 const restartBtn = document.getElementById('restart-btn')
 const nameInput = document.getElementById('name-input')
+const radioInputs = document.getElementsByName('mark-selector')
 
 const displayController = (() => {
     const gameResultsArea = document.getElementById('game-results-area')
@@ -32,6 +33,22 @@ const gameboard = (() => {
         
     }
 
+    const getMark = () => {
+        for (let i = 0; i < radioInputs.length; i++) {
+            if (radioInputs[i].checked) {
+                return radioInputs[i].value
+            }
+        }
+    }
+
+    const getPCMark = () => {
+        for (let i = 0; i < radioInputs.length; i++) {
+            if (!radioInputs[i].checked) {
+                return radioInputs[i].value
+            }
+        }
+    }
+
     const update = (index, value) => {
         boardValues[index] = value
         render()
@@ -39,7 +56,7 @@ const gameboard = (() => {
 
     const getGameboard = () => boardValues
 
-    return {render, update, getGameboard}
+    return {render, update, getGameboard, getMark, getPCMark}
 })()
 
 const createPlayer = (name, mark) => {
@@ -52,7 +69,7 @@ const Game = (() => {
     let players = []
 
     const start = () => {
-        players = [createPlayer(nameInput.value, 'X'), createPlayer('PC','O')]
+        players = [createPlayer(nameInput.value, gameboard.getMark()), createPlayer('PC', gameboard.getPCMark())]
         gameOver = false
         currentPlayerIndex = 0
         createPlayer(document.querySelectorAll('mark-selector'))

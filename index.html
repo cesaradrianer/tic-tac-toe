@@ -8,16 +8,24 @@
 </head>
 <body>
     <main>
-        <label for="cross">X</label>
-        <input type="radio" name="mark-selector" id="cross">
-        <label for="circle">O</label>
-        <input type="radio" name="mark-selector" id="circle">
-        <label for="player-name">Write your name: </label>
-        <input type="text" name="player-name" id="name-input">
-        <button id="start-game-btn">Start Game</button>
-        <button id="restart-btn">Restart Game</button>
-        <div id="game-area"></div>
+        <header>
+            <h1>Tic-Tac-Toe</h1>
+            <h4>By <a href="https://github.com/cesaradrianer">cesaradrianer</a></h4>
+        </header>
+        <div id="game-controls">
+            <label for="cross">X</label>
+            <input type="radio" name="mark-selector" id="cross" value="X">
+            <label for="circle">O</label>
+            <input type="radio" name="mark-selector" id="circle" value="O">
+            <label for="player-name">Write your name: </label>
+            <input type="text" name="player-name" id="name-input">
+            <button id="start-game-btn">Start Game</button>
+            <button id="restart-btn">Restart Game</button>
+        </div>
         <div id="game-results-area"></div>
+        <div id="game-area-wrapper">
+            <div id="game-area"></div>
+        </div>
     </main>
     <script src="main.js"></script>
 </body>

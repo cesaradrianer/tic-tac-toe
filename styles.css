@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --background-color: #ebebeb;
+    --padding: 20px;
+}
+
 body {
     margin: 0;
+    font-family: 'Work Sans';
+}
+
+#game-area-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 0 50px 0;
 }
 
 #game-area {
@@ -12,4 +27,24 @@ body {
 .square {
     background-color: gray;
     cursor: pointer;
+}
+
+#game-controls {
+    background-color: var(--background-color);
+    padding: var(--padding);
+    border: 1px solid gray;
+}
+
+header {
+    background-color: var(--background-color);
+    padding: 50px 0 50px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
 }
